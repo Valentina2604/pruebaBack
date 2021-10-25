@@ -1,0 +1,74 @@
+package com.example.prueba.entity;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="T01_SOLICITUD")
+public class T01SolicitudEntity {
+	
+	@Id
+	@Column(name="id")
+	private Integer idT01Solicitud;
+	
+	@Column(name="estado")
+	private Integer estado;
+	
+	@Column(name="fecha_ingreso")
+	private LocalDateTime fechaIngreso = LocalDateTime.now();
+	
+	@Column(name="monto")
+	private BigDecimal monto;
+	
+	@Column(name="id_cliente")
+	private String idCliente;
+
+	public Integer getIdT01Solicitud() {
+		return idT01Solicitud;
+	}
+
+	public void setIdT01Solicitud(Integer idT01Solicitud) {
+		this.idT01Solicitud = idT01Solicitud;
+	}
+
+	public Integer getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Integer estado) {
+		this.estado = estado;
+	}
+
+	public LocalDateTime getFechaIngreso() {
+		return fechaIngreso;
+	}
+
+	public void setFechaIngreso(LocalDateTime fechaIngreso) {
+		this.fechaIngreso = fechaIngreso;
+	}
+
+	public BigDecimal getMonto() {
+		return monto;
+	}
+
+	public void setMonto(BigDecimal monto) {
+		this.monto = monto;
+	}
+
+	public String getIdCliente() {
+		return idCliente;
+	}
+
+	public void setIdCliente(String idCliente) {
+		this.idCliente = idCliente;
+	}
+	
+	
+	
+	
+}

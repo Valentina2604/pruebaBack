@@ -1,0 +1,22 @@
+package com.example.prueba.service;
+
+import java.sql.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.prueba.entity.T01SolicitudEntity;
+import com.example.prueba.repository.T01SolicitudRepository;
+
+@Service
+public class FechasService {
+	
+	@Autowired
+	private T01SolicitudRepository soliRepo;
+	
+	public void promedioFechas(Date fechaInicio, Date fechaFin) {
+		List<T01SolicitudEntity> lista =soliRepo.findByFechaIngreso(fechaInicio);
+		
+	}
+}

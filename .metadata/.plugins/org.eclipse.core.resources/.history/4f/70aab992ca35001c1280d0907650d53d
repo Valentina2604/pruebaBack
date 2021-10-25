@@ -1,0 +1,5 @@
+package com.example.prueba.entity;
+
+public class T01SolicitudEntity {
+
+}

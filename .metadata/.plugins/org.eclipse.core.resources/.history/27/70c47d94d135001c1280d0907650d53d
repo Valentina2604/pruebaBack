@@ -1,0 +1,45 @@
+package com.example.prueba.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.example.prueba.entity.T01SolicitudEntity;
+import com.example.prueba.repository.T01SolicitudRepository;
+
+@Service
+public class T01SolicitudService {
+	
+	@Autowired
+	private T01SolicitudRepository solicitudRepo;
+	
+	public ResponseEntity<T01SolicitudEntity> registrar(T01SolicitudEntity solicitud){
+		solicitudRepo.save(solicitud);
+		return new ResponseEntity<T01SolicitudEntity>(solicitud, HttpStatus.CREATED);
+	}
+	
+	public ResponseEntity<T01SolicitudEntity> Actualizar(T01SolicitudEntity solicitud){
+		solicitudRepo.save(solicitud);
+		return new ResponseEntity<T01SolicitudEntity>(solicitud, HttpStatus.OK);
+	}
+	
+	public List<T01SolicitudEntity> listarPorId(int idSolicitud){
+		List<T01SolicitudEntity> listaId =null;
+		try {
+			listaId = solicitudRepo.findByIdSolicitud(idSolicitud);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return listaId;
+	}
+	
+	public void eliminar(int idSolicitud){
+		List<T01SolicitudEntity> resultado = listarPorId(idSolicitud);
+		if (resultado!=null) {
+			solicitudRepo.deleteById(idSolicitud);;
+		}
+	}
+}
